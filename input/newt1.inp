@@ -1,0 +1,39 @@
+'#TestGrep# "k-eff [=]" ${OUTPUTFILENAME}
+'#TestGrep# -i "erro[r]" ${OUTPUTFILENAME} | ${GREP} -v "[W]arnings and [E]rrors"
+'#TestGrep# "SCALE is finishe[d]" ${OUTPUTFILENAME} | ${AWK} "{print $1,$2,$3}"
+'#TestGrep# "is finishe[d]\." ${OUTPUTFILENAME} | ${AWK} "{print $1,$2,$3,$4,$5,$6,$7}"
+=t-newt 
+2-D 1/4 pin-cell model with MOX fuel 
+v7-238
+read comp
+' Fuel
+li-7 1 DEN=3.327 .0781 900 end
+f-19 1 DEN=3.327 .4519 900 end
+be-9 1 DEN=3.327 .0224 900 end
+th-232 1 DEN=3.327 .4331 900 end
+u-233 1 DEN=3.327.0145 900 end
+' Moderator
+c-12 2 DEN=1.843 1 900 end
+end comp
+read model
+read parm
+height=396
+end parm
+read materials
+  mix=2  pn=1  end
+  mix=1  pn=1  end
+end materials
+read collapse 148r1 90r2 end collapse
+read geom
+global unit 10
+cylinder 11 2.08
+cuboid 12 5.73 -5.73 5.73 -5.73
+media 1 1 11
+media 2 1 12 -11
+boundary 12 5 5 
+end geom
+read bounds 
+all=refl
+end bounds
+end model
+end
