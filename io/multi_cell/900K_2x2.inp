@@ -1,0 +1,55 @@
+'#TestGrep# "k-eff [=]" ${OUTPUTFILENAME}
+'#TestGrep# -i "erro[r]" ${OUTPUTFILENAME} | ${GREP} -v "[W]arnings and [E]rrors"
+'#TestGrep# "SCALE is finishe[d]" ${OUTPUTFILENAME} | ${AWK} "{print $1,$2,$3}"
+'#TestGrep# "is finishe[d]\." ${OUTPUTFILENAME} | ${AWK} "{print $1,$2,$3,$4,$5,$6,$7}"
+=t-newt 
+MSBR 
+v7-238
+read comp
+' Fuel
+li-7 1 DEN=3.333 .0784 900 end
+li-6 1 DEN=3.333 3.36e-6 900 end
+f-19 1 DEN=3.333 .4536 900 end
+be-9 1 DEN=3.333 .0225 900 end
+th-232 1 DEN=3.333 .4347 900 end
+u-233 1 DEN=3.333.0109 900 end
+' Moderator
+c-12 2 DEN=1.843 1 900 end
+end comp
+
+read celldata
+latticecell squarepitch pitch=10.14 2 fueld=4.16 1 end
+end celldata
+
+read model
+read parm
+'height=396
+'solntype=b1
+b2=7.01938E-04
+collapse=yes
+prtbroad=yes
+end parm
+read materials
+  mix=2  pn=2  end
+  mix=1  pn=1  end
+end materials
+read collapse 199r1 39r2 end collapse
+read geom
+global unit 10
+cylinder 11 2.08 origin x=5.155 y=5.155
+cylinder 21 2.08 origin x=15.295 y=5.155
+cylinder 31 2.08 origin x=5.155 y=15.295
+cylinder 41 2.08 origin x=15.295 y=15.295
+cuboid 12 20.45 0 20.45 0
+media 1 1 11
+media 1 1 21
+media 1 1 31
+media 1 1 41
+media 2 1 12 -11 -21 -31 -41
+boundary 12 30 30 
+end geom
+read bounds 
+all=refl
+end bounds
+end model
+end
