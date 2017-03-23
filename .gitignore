@@ -8,3 +8,4 @@
 !*.txt
 *.line.txt
 .ipynb_checkpoints/
+!*.py
