@@ -1,11 +1,8 @@
 *
 !*.inp
-!*.out
-!*.m
 !serpent_2g
 !*/
 !*.md
-!*.txt
 *.line.txt
 .ipynb_checkpoints/
 !*.py

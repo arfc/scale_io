@@ -2,7 +2,7 @@
  *                                                                             *
  *                                 SCALE 6.2.1                                 *
  *                                -------------                                *
- *                                January 2017                                 *
+ *                                 March 2017                                  *
  *                                                                             *
  *           SCALE:  A Comprehensive Modeling and Simulation Suite             *
  *                   for Nuclear Safety Analysis and Design                    *
@@ -18,11 +18,11 @@
       
                   Job Information
                   ---------------
-      Job started on lindsayad-Inspiron-5437 on Fri 06/01/2017 11:45:58
-      Working directory: /tmp/scale.lindsayad.26553
-      Input file name  : /home/lindsayad/scale/C834MNYCP02/SCALE-6.2.1/lindsayad/io/cammi_nominal/calc_buckling.inp
-      Output file name : /home/lindsayad/scale/C834MNYCP02/SCALE-6.2.1/lindsayad/io/cammi_nominal/calc_buckling.out
-      SCALE executable : /home/lindsayad/scale/C834MNYCP02/SCALE-6.2.1/bin/scale
+      Job started on lindsayad-Precision-Tower-3420 on Wed 22/03/2017 15:10:36
+      Working directory: /tmp/scale.lindsayad.13483
+      Input file name  : /home/lindsayad/scale/SCALE-6.2.1/scale_io/io/cammi_nominal/calc_buckling.inp
+      Output file name : /home/lindsayad/scale/SCALE-6.2.1/scale_io/io/cammi_nominal/calc_buckling.out
+      SCALE executable : /home/lindsayad/scale/SCALE-6.2.1/bin/scale
       
  *******************************************************************************
 The following data cards precede an = card
@@ -32,7 +32,7 @@ The following data cards precede an = card
       '#TestGrep# "is finishe[d]\." ${OUTPUTFILENAME} | ${AWK} "{print $1,$2,$3,$4,$5,$6,$7}"
 
 
-    module t-newt will be called on Fri Jan  6 11:46:00 2017.
+    module t-newt will be called on Wed Mar 22 15:10:40 2017.
     sequence specification record:=t-newt
 Input Data:
 
@@ -105,12 +105,12 @@ end
 *****                                                                                                                          *****
 *****                     username:  lindsayad                                                                                 *****
 *****                                                                                                                          *****
-*****                     hostname:  lindsayad-Inspiron-5437                                                                   *****
+*****                     hostname:  lindsayad-Precision-Tower-3420                                                            *****
 *****                                                                                                                          *****
 *****                                                                                                                          *****
-*****            date of execution:  2017-01-06                                                                                *****
+*****            date of execution:  2017-03-22                                                                                *****
 *****                                                                                                                          *****
-*****            time of execution:  11:46:00                                                                                  *****
+*****            time of execution:  15:10:40                                                                                  *****
 *****                                                                                                                          *****
 ************************************************************************************************************************************
 ************************************************************************************************************************************
@@ -124,7 +124,7 @@ end
  ' prtbroad=yes
 ------------------------------------------------------------------------------------------------------------------------------------
 
-                          NEWT calculation started at 11:46: 3 on  1/06/2017                              
+                          NEWT calculation started at 15:10:42 on  3/22/2017                              
 
 ------------------------------------------------------------------------------------------------------------------------------------
 
@@ -895,9 +895,9 @@ end
 module xsproc is finished. completion code 0.
 Sequence T-Newt is finished. completion code 0.
 
-    SCALE is finished on Fri Jan  6 11:48:56 2017.
+    SCALE is finished on Wed Mar 22 15:13:10 2017.
 -------------------------- Summary --------------------------
-t-newt finished. used 175.87 seconds.
-SCALE driver required a maximum of 777 MiB of RAM.
+t-newt finished. used 150.36 seconds.
+SCALE driver required a maximum of 777.8 MiB of RAM.
 ------------------------ End Summary ------------------------
 

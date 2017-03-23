@@ -2,16 +2,28 @@ from shutil import copyfile
 import fileinput
 import re
 
-def fdens(temperature):
-    # # can't remember source
-    # return 2.41303 - 0.0004884 * temperature
-    # Cammi 2011
-    return 3.374 * (1. - 1.9857e-4 * (temperature - 839))
+# These functions for density are based on volumetric expansion coefficients
+# given on page 40 of MSRE Design and Operations Report, Part iii, Nuclear
+# Analysis
 
-start = 800
-stop = 1050
+def fdens(temperature):
+    alpha_fuel_faeh = 1.18e-4
+    alpha_fuel_kel = 1.8 * alpha_fuel_faeh
+    rho0_fuel = 2.146
+    T0 = 922
+    return rho0_fuel * exp(-alpha_fuel_kel * (temperature - T0))
+
+def mdens(temperature):
+    alpha_graph_faeh = 1.0e-5
+    alpha_graph_kel = 1.8 * alpha_graph_faeh
+    rho0_graph = 1.86
+    T0 = 922
+    return rho0_graph * exp(-alpha_graph_kel * (temperature - T0))
+
+start = 972
+stop = 1022
 step = 50
-root = "calc_xsecs_provided_buckling"
+root = "calc_buckling"
 for fuel_temp in range(start, stop + step, step):
     for mod_temp in range(start, stop + step, step):
         file_name = root + "_" + str(fuel_temp) + "_mod_" + str(mod_temp) + ".inp"
