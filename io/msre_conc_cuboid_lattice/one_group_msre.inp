@@ -39,7 +39,7 @@ read materials
   mix=1  pn=1  end
 end materials
 
-read collapse 199r1 39r2 end collapse
+read collapse 238r1 end collapse
 
 read geom
 global unit 10

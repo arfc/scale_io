@@ -1,19 +1,21 @@
 import fileinput
 import re
 import numpy as np
+import sys
 
 # Parse NEWT output files
 
-file_base = '/home/lindsayad/scale/SCALE-6.2.1/scale_io/io/msre_conc_cuboid_lattice/calc_buckling_'
+# file_base = '/home/lindsayad/scale/SCALE-6.2.1/scale_io/io/msre_conc_cuboid_lattice/calc_buckling_'
+file_base = sys.argv[1]
 
-start = 922
-stop = 1022
+start = int(sys.argv[3])
+stop = int(sys.argv[4])
 step = 50
 temps = [temp for temp in range(start, stop + step, step)]
 
 all_files = [file_base + str(temp) + '.out' for temp in temps]
 
-num_groups = 2
+num_groups = 1
 num_precursor_groups = 6
 
 fuel_xsecs = []
@@ -214,7 +216,7 @@ class XsecData():
         self.dim = len(data.shape) - 1
         self._error_check()
         self.out_name = out_prefix + "_" + mat_name + "_" + self.name + ".txt"
-        
+
     def _error_check(self):
         if len(self.temperature.shape) > 1:
             raise RuntimeError("Temperature should only be a 1D array or list")
@@ -227,7 +229,7 @@ class XsecData():
           "RECIPVEL", "CHI", "GTRANSFXS", "BETA_EFF", "DECAY_CONSTANT"]
         if self.name not in valid_names:
             raise RuntimeError("Specified xsec name does not match any expected by Moltres")
-        
+
     def write_moltres_input_file(self):
         with open(self.out_name, 'w') as f:
             for i in range(self.temperature.shape[0]):
@@ -248,6 +250,6 @@ fuel_data_dict = {"FISSXS" : fuel_sig_f, "FLUX" : fuel_flux, "REMXS" : fuel_sig_
 mod_data_dict = {"FISSXS" : mod_sig_f, "FLUX" : mod_flux, "REMXS" : mod_sig_r, "NUBAR" : mod_nubar, "NSF" : mod_nsf, "FISSE" : mod_fisse, "DIFFCOEF" : mod_diff_coeff, "RECIPVEL" : mod_inv_vel, "CHI" : mod_chi, "GTRANSFXS" : mod_scatter_array, "BETA_EFF" : mod_beta, "DECAY_CONSTANT" : mod_lambda}
 
 for name, data in fuel_data_dict.items():
-    XsecData(temps, data, name, "fuel", "newt_msre").write_moltres_input_file()
+    XsecData(temps, data, name, "fuel", sys.argv[2]).write_moltres_input_file()
 for name, data in mod_data_dict.items():
-    XsecData(temps, data, name, "mod", "newt_msre").write_moltres_input_file()
+    XsecData(temps, data, name, "mod", sys.argv[2]).write_moltres_input_file()

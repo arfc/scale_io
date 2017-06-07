@@ -14,7 +14,7 @@ be-9	1	DEN=2.146	.0627	922	end
 u-235	1	DEN=2.146	.0167	922	end
 u-238	1	DEN=2.146	.0344	922	end
 '	Moderator
-c-12	2	DEN=1.86	1	922	end
+c-12	2	DEN=1.860	1	922	end
 end comp
 
 read celldata
@@ -39,7 +39,7 @@ read materials
   mix=1  pn=1  end
 end materials
 
-read collapse 199r1 39r2 end collapse
+read collapse 238r1 end collapse
 
 read geom
 global unit 10

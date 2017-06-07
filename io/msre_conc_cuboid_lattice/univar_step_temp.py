@@ -22,9 +22,9 @@ def mdens(temperature):
     return rho0_graph * exp(-alpha_graph_kel * (temperature - T0))
 
 start = 922
-stop = 1022
+stop = 1122
 step = 50
-root = "calc_buckling"
+root = "one_group_msre"
 for temp in range(start, stop + step, step):
     file_name = root + "_" + str(temp) + ".inp"
     copyfile(root + ".inp", file_name)
@@ -35,4 +35,3 @@ for temp in range(start, stop + step, step):
             print(line.replace(line, re.sub(r'1\.86(.*)922', '{:.3f}'.format(mdens(temp)) + r'\g<1>' + str(temp), line)), end="")
         else:
             print(line, end="")
-

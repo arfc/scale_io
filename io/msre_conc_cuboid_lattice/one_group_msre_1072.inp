@@ -7,14 +7,14 @@ MSBR
 v7-238
 read comp
 '	Fuel
-li-7	1	DEN=2.146	.1090	922	end
-li-6	1	DEN=2.146	5e-6	922	end
-f-19	1	DEN=2.146	.6680	922	end
-be-9	1	DEN=2.146	.0627	922	end
-u-235	1	DEN=2.146	.0167	922	end
-u-238	1	DEN=2.146	.0344	922	end
+li-7	1	DEN=2.079	.1090	1072	end
+li-6	1	DEN=2.079	5e-6	1072	end
+f-19	1	DEN=2.079	.6680	1072	end
+be-9	1	DEN=2.079	.0627	1072	end
+u-235	1	DEN=2.079	.0167	1072	end
+u-238	1	DEN=2.079	.0344	1072	end
 '	Moderator
-c-12	2	DEN=1.86	1	922	end
+c-12	2	DEN=1.855	1	1072	end
 end comp
 
 read celldata
@@ -39,7 +39,7 @@ read materials
   mix=1  pn=1  end
 end materials
 
-read collapse 199r1 39r2 end collapse
+read collapse 238r1 end collapse
 
 read geom
 global unit 10
